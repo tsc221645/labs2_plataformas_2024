@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.jetbrains.kotlin.serialization)
 }
 
 android {
@@ -50,20 +51,43 @@ android {
 }
 
 dependencies {
+    // Core y Lifecycle KTX
+    implementation(libs.androidx.core.ktx) // Última versión 1.12.0
+    implementation(libs.androidx.lifecycle.runtime.ktx) // Última versión 2.6.2
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    // Activity Compose
+    implementation(libs.androidx.activity.compose) // Última versión 1.8.0
+
+    // Compose BOM
+    implementation(platform(libs.androidx.compose.bom)) // Última versión 2024.01.00
+
+    // UI y Herramientas de Jetpack Compose
+    implementation(libs.androidx.ui) // Última versión 1.6.0
+    implementation(libs.androidx.ui.graphics) // Última versión 1.6.0
+    implementation(libs.androidx.ui.tooling.preview) // Última versión 1.6.0
+
+    // Material 3 (Material You)
+    implementation(libs.androidx.material3) // Última versión 1.2.0
+
+    // Testing
+    testImplementation(libs.junit) // Última versión 4.13.2
+    androidTestImplementation(libs.androidx.junit) // Última versión 1.1.6
+    androidTestImplementation(libs.androidx.espresso.core) // Última versión 3.6.0
+
+    // Test de UI para Jetpack Compose
+    androidTestImplementation(platform(libs.androidx.compose.bom)) // Última versión 2024.01.00
+    androidTestImplementation(libs.androidx.ui.test.junit4) // Última versión 1.6.0
+
+    // Herramientas de desarrollo y pruebas
+    debugImplementation(libs.androidx.ui.tooling) // Última versión 1.6.0
+    debugImplementation(libs.androidx.ui.test.manifest) // Última versión 1.6.0
+
+    // Dependencia de Jetpack Compose Navigation
+    implementation(libs.androidx.compose.navigation) // Última versión 2.8.0
+
+    // Dependencia para la serialización de JSON con KotlinX
+    implementation(libs.kotlinx.serialization.json) // Última versión 1.6.0
+
+    // Dependencia de Coil para cargar imágenes en Compose
+    implementation("io.coil-kt:coil-compose:2.4.0") // Última versión de Coil
 }
