@@ -86,7 +86,7 @@ dependencies {
     implementation(libs.androidx.compose.navigation) // Última versión 2.8.0
 
     // Dependencia para la serialización de JSON con KotlinX
-    implementation(libs.kotlinx.serialization.json) // Última versión 1.6.0
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 
     // Dependencia de Coil para cargar imágenes en Compose
     implementation("io.coil-kt:coil-compose:2.4.0") // Última versión de Coil
