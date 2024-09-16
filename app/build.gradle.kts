@@ -67,7 +67,8 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview) // Última versión 1.6.0
 
     // Material 3 (Material You)
-    implementation(libs.androidx.material3) // Última versión 1.2.0
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.material3.android) // Última versión 1.2.0
 
     // Testing
     testImplementation(libs.junit) // Última versión 4.13.2
