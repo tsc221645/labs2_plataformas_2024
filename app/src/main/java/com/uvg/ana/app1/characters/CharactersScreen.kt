@@ -5,27 +5,27 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.*
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import com.uvg.ana.app1.data.CharacterDb
+import com.uvg.ana.app1.bottomnavigation.BottomNavBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun CharactersScreen(onCharacterClick: (Int) -> Unit) {
+fun CharactersScreen(selectedItem: Int, onCharacterClick: (Int) -> Unit, onNavItemSelected: (Int) -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(title = { Text("Characters") })
+        },
+        bottomBar = {
+            BottomNavBar(selectedItem = selectedItem, onItemSelected = onNavItemSelected)
         }
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
@@ -53,4 +53,14 @@ fun CharactersScreen(onCharacterClick: (Int) -> Unit) {
             }
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewCharactersScreen() {
+    CharactersScreen(
+        selectedItem = 0,
+        onCharacterClick = {},
+        onNavItemSelected = {}
+    )
 }
