@@ -13,11 +13,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import com.uvg.ana.app1.R
 
 @Composable
-fun ProfileScreen(navController: NavHostController? = null) {
+fun ProfileScreen(onLogoutClick: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -39,7 +38,7 @@ fun ProfileScreen(navController: NavHostController? = null) {
 
         // Profile details
         Text("Nombre:", fontWeight = FontWeight.Bold, fontSize = 18.sp)
-        Text("Ana laura Tschen", fontSize = 18.sp)
+        Text("Ana Laura Tschen", fontSize = 18.sp)
 
         Spacer(modifier = Modifier.height(8.dp))
 
@@ -50,9 +49,7 @@ fun ProfileScreen(navController: NavHostController? = null) {
 
         // Logout Button
         Button(
-            onClick = {
-                navController?.popBackStack(navController.graph.startDestinationId, false)
-            },
+            onClick = { onLogoutClick() },
             modifier = Modifier
                 .fillMaxWidth(0.6f)
                 .height(50.dp)
@@ -65,5 +62,5 @@ fun ProfileScreen(navController: NavHostController? = null) {
 @Preview(showBackground = true)
 @Composable
 fun PreviewProfileScreen() {
-    ProfileScreen()
+    ProfileScreen(onLogoutClick = {})
 }

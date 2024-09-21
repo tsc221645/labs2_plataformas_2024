@@ -31,4 +31,5 @@ class LocationDb {
     fun getLocationById(id: Int): Location {
         return locations.first { it.id == id }
     }
+
 }

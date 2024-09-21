@@ -14,18 +14,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import com.uvg.ana.app1.data.CharacterDb
-import com.uvg.ana.app1.bottomnavigation.BottomNavBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun CharactersScreen(selectedItem: Int, onCharacterClick: (Int) -> Unit, onNavItemSelected: (Int) -> Unit) {
+fun CharactersScreen(onCharacterClick: (Int) -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(title = { Text("Characters") })
-        },
-        bottomBar = {
-            BottomNavBar(selectedItem = selectedItem, onItemSelected = onNavItemSelected)
         }
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
@@ -58,9 +54,5 @@ fun CharactersScreen(selectedItem: Int, onCharacterClick: (Int) -> Unit, onNavIt
 @Preview(showBackground = true)
 @Composable
 fun PreviewCharactersScreen() {
-    CharactersScreen(
-        selectedItem = 0,
-        onCharacterClick = {},
-        onNavItemSelected = {}
-    )
+    CharactersScreen(onCharacterClick = {})
 }

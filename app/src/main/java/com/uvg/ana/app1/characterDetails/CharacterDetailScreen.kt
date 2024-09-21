@@ -23,7 +23,7 @@ fun CharacterDetailScreen(characterId: Int, onBack: () -> Unit) {
     // Obtenemos el personaje
     val character = CharacterDb.getCharacterById(characterId)
 
-    // Si el personaje es nulo, mostramos un texto indicando que no se encontró el personaje
+
     if (character == null) {
         Scaffold(
             topBar = {

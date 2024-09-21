@@ -3,17 +3,18 @@ package com.uvg.ana.app1.characters
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import com.uvg.ana.app1.characterDetails.CharacterDetailScreen
 
-fun NavGraphBuilder.CharactersNavigation(navController: NavController) {
+fun NavGraphBuilder.charactersNavGraph(navController: NavController) {
     composable("characters") {
         CharactersScreen(
-            selectedItem = 0, // Asegúrate de pasar el valor que corresponda aquí
             onCharacterClick = { characterId ->
                 navController.navigate("characterDetails/$characterId")
-            },
-            onNavItemSelected = { selectedItem ->
-                // Maneja la navegación según el item seleccionado
             }
         )
+    }
+    composable("characterDetails/{characterId}") { backStackEntry ->
+        val characterId = backStackEntry.arguments?.getString("characterId")?.toInt() ?: return@composable
+        CharacterDetailScreen(characterId = characterId, onBack = { navController.popBackStack() })
     }
 }
