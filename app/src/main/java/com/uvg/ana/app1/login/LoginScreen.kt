@@ -1,4 +1,4 @@
-package com.uvg.ana.app1.ui.theme
+package com.uvg.ana.app1.login
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -28,7 +28,7 @@ fun LoginScreen(onLoginSuccess: () -> Unit) {
         Spacer(modifier = Modifier.height(20.dp))
         Button(
             onClick = {
-                // Esta acción debe disparar la navegación al listado de personajes
+                // Esta acción dispara la navegación a la pantalla de personajes
                 onLoginSuccess()
             },
             shape = RoundedCornerShape(8.dp)

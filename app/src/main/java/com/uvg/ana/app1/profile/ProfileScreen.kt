@@ -1,5 +1,6 @@
 package com.uvg.ana.app1.profile
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -15,46 +16,56 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.uvg.ana.app1.R
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileScreen(onLogoutClick: () -> Unit) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Profile") }
+            )
+        }
     ) {
-        Spacer(modifier = Modifier.height(40.dp))
-
-        // Profile Image
-        Image(
-            painter = painterResource(id = R.drawable.profilepic),
-            contentDescription = "Profile Image",
+        Column(
             modifier = Modifier
-                .size(150.dp)
-                .clip(CircleShape)
-        )
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        // Profile details
-        Text("Nombre:", fontWeight = FontWeight.Bold, fontSize = 18.sp)
-        Text("Ana Laura Tschen", fontSize = 18.sp)
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        Text("Carné:", fontWeight = FontWeight.Bold, fontSize = 18.sp)
-        Text("221645", fontSize = 18.sp)
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        // Logout Button
-        Button(
-            onClick = { onLogoutClick() },
-            modifier = Modifier
-                .fillMaxWidth(0.6f)
-                .height(50.dp)
+                .fillMaxSize()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("Cerrar sesión", fontSize = 16.sp)
+            Spacer(modifier = Modifier.height(40.dp))
+
+            // Profile Image
+            Image(
+                painter = painterResource(id = R.drawable.profilepic),
+                contentDescription = "Profile Image",
+                modifier = Modifier
+                    .size(150.dp)
+                    .clip(CircleShape)
+            )
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            // Profile details
+            Text("Nombre:", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+            Text("Ana Laura Tschen", fontSize = 18.sp)
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text("Carné:", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+            Text("221645", fontSize = 18.sp)
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            // Logout Button
+            Button(
+                onClick = { onLogoutClick() },
+                modifier = Modifier
+                    .fillMaxWidth(0.6f)
+                    .height(50.dp)
+            ) {
+                Text("Cerrar sesión", fontSize = 16.sp)
+            }
         }
     }
 }

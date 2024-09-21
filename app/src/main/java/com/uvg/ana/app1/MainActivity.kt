@@ -10,12 +10,14 @@ import androidx.navigation.compose.rememberNavController
 import com.uvg.ana.app1.characters.charactersNavGraph
 import com.uvg.ana.app1.locations.locationsNavGraph
 import com.uvg.ana.app1.profile.profileNavGraph
-import com.uvg.ana.app1.bottomnavigation.BottomNavBar
 import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.getValue
+import androidx.navigation.compose.composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import com.uvg.ana.app1.bottomnavigation.BottomNavBar
+import com.uvg.ana.app1.login.LoginScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +46,14 @@ fun MainScreen() {
             }
         }
     ) {
-        NavHost(navController = navController, startDestination = "characters") {
+        NavHost(navController = navController, startDestination = "login") {
+            composable("login") {
+                LoginScreen(onLoginSuccess = {
+                    navController.navigate("characters") {
+                        popUpTo(navController.graph.startDestinationId) { inclusive = true }
+                    }
+                })
+            }
             charactersNavGraph(navController)
             locationsNavGraph(navController)
             profileNavGraph(navController)
