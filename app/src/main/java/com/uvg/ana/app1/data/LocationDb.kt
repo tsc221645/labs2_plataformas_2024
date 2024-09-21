@@ -1,5 +1,5 @@
 package com.uvg.ana.app1.data// import .....Location
-
+import com.uvg.ana.app1.model.Location
 class LocationDb {
     private val locations: List<Location> = listOf(
         Location(1, "Earth (C-137)", "Planet", "Dimension C-137"),

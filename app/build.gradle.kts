@@ -68,7 +68,7 @@ dependencies {
 
     // Material 3 (Material You)
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.material3.android) // Última versión 1.2.0
+    //implementation(libs.androidx.material3.android) // Última versión 1.2.0
 
     // Testing
     testImplementation(libs.junit) // Última versión 4.13.2
@@ -91,4 +91,6 @@ dependencies {
 
     // Dependencia de Coil para cargar imágenes en Compose
     implementation("io.coil-kt:coil-compose:2.4.0") // Última versión de Coil
+
+    implementation ("androidx.compose.material:material-icons-extended:<version>")
 }
