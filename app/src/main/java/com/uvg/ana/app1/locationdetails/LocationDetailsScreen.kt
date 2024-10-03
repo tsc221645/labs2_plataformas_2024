@@ -67,7 +67,7 @@ fun LocationDetailsScreen(
         }
     }
 }
-
+//location
 @Composable
 fun LocationDetailContent(location: Location) {
     Column(
