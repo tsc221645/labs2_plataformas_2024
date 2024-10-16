@@ -93,4 +93,8 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.4.0") // Última versión de Coil
 
     implementation ("androidx.compose.material:material-icons-extended:<version>")
+    implementation ("androidx.datastore:datastore-preferences:1.0.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation ("androidx.room:room-runtime:2.5.0")
+
 }
